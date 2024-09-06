@@ -1,9 +1,9 @@
 import { Db } from "mongodb";
 
-export class Database {
-  private static db: Db;
+export default class Database {
+  private static #db: Db;
 
-  static setDB(db: any): void;
+  static async connect(url: string, callback: () => void): Promise<void>;
 
-  static getDB(): any;
+  static getDB(): Db;
 }
