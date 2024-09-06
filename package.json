@@ -1,0 +1,26 @@
+{
+  "name": "odemongo",
+  "version": "1.0.0",
+  "description": "Odemon is an ODM for MongoDB",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivanglzr/Odemon.git"
+  },
+  "keywords": [
+    "mongodb"
+  ],
+  "author": "ivanglzr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ivanglzr/Odemon/issues"
+  },
+  "homepage": "https://github.com/ivanglzr/Odemon#readme",
+  "dependencies": {
+    "mongodb": "6.8.0"
+  }
+}
