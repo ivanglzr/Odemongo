@@ -1,6 +1,6 @@
 {
   "name": "odemongo",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Odemongo is an ODM for MongoDB",
   "main": "index.js",
   "type": "module",
