@@ -11,9 +11,9 @@ It allows you to work with the database with a custom model.
 Callback is optional.
 
 ```
-import { connect } from "odemongo"
+import { Database } from "odemongo"
 
-await connect(connection_string, callback?)
+await Database.connect(connection_string, callback?)
 ```
 
 ## 2. Create your model
