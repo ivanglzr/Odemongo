@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "strict": true,
+    "module": "ES6",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./",
+    "typeRoots": ["./types", "./node_modules/@types"]
+  },
+  "include": ["./lib/**/*.js", "./lib/types/**/*.d.ts"]
+}
