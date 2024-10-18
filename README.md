@@ -1,44 +1,47 @@
 # Odemongo
 
 **Odemongo** is an **ODM** for MongoDB. \
-It allows you to work with the database with a custom model.
+It allows you to work with multiple databases with a custom model.
 
 # Usage
 
 ## 1. Connect to MongoDB
 
-**Odemongo** brings a you a function that you can use to connect to the DB. \
-Callback is optional.
+**Odemongo** brings a you a class that you can use to connect to a DB. \
 
 ```
 import { Database } from "odemongo"
 
-await Database.connect(connection_string, callback?)
+const db = new Database(mongodb_url)
+
+await db.connect()
 ```
 
 ## 2. Create your model
 
-A model allows to you to interact with a collection and validate data with zod. \
-Just by passing a zod schema odemongo will validate it and in case of error it will return it
+A model allows to you to interact with an especific database and an especific collection. \
+It also allows you to validate data with zod. \
+Just by passing a zod schema odemongo will validate it and in case of error it will return it.
 
 ```
 import { Model } from "odemongo"
 
-const YOUR_MODEL = new Model(zod_schema, collection_name)
+const YOUR_MODEL = new Model(db, zod_schema, collection_name)
 ```
 
 ## 3. Interact with your model
 
 Now you can use all of the functions that **Odemongo** brings you with your model. \
-All the functions return an object with a result and an error and are asynchronous. \
+All the functions that receive data return an object with a result and an error and are asynchronous. \
+The find functions only return a result. \
 If there is a validation error the message will be in error and result will be null. \
 If validation is correct result will contain all the data and error will be false. \
-Options are all the default options that the MongoDB NodeJS driver has
+Options are all the default options that the MongoDB NodeJS driver has.
 
 ### Model.find(query?, options?)
 
 ```
-const { result, error } = await Model.find()
+const { result } = await Model.find()
 ```
 
 Result is an array
@@ -46,7 +49,7 @@ Result is an array
 ### Model.findOne(query, options?)
 
 ```
-const { result, error } = await Model.findOne({name: "John Doe"})
+const { result } = await Model.findOne({ name: "John Doe" })
 ```
 
 Result is an object
@@ -54,7 +57,7 @@ Result is an object
 ### Model.findById(id, options?)
 
 ```
-const { result, error } = await Model.findById(id)
+const { result } = await Model.findById(id)
 ```
 
 Id must be an string that is 24 characters long, **Odemongo** will turn it into an ObjectId. \
